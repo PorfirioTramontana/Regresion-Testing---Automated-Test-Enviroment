@@ -15,21 +15,28 @@ import java.util.stream.Stream;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import com.google.gson.Gson;
+
 import regresion_testing.dynamic_generator.TestParamsProcessed.TestType;
+import regresion_testing.generic_tests.Configuration;
 import regresion_testing.generic_tests.SeleniumTests;
 import regresion_testing.generic_tests.TestResult;
 
+@RunWith(Parameterized.class)
 public class DynamicGenerator {
 	private static WebDriver driver = null;
 	private String testUrl;
 	private String field;
 	private String value;
 	private TestType testType;
-	private static String jsonRoute;
+	private static String jsonRoute = "config.json";
+	private static Configuration config;
+	private static List<TestParamsProcessed> testsProcessed;
 
 	@BeforeClass
 	public static void setup() {
@@ -62,21 +69,44 @@ public class DynamicGenerator {
 		Path inputFile = FileSystems.getDefault().getPath(jsonRoute);
 		String dataString = readFile(inputFile);
 
-		// Need to create something to process the JSON information with GSON
-		// new GSON().fromJson(dataString, .class);
+		// Here we process the main JSON called config.json
+		config = new Gson().fromJson(dataString, Configuration.class);
+
+		// List of all tests processed
+		testsProcessed = new ArrayList<TestParamsProcessed>();
 
 		// Something to process all tests and store them in a list.
+		for (String jsonTestsPath : config.getJsonTests()) {
+			inputFile = FileSystems.getDefault().getPath(jsonTestsPath);
+			dataString = readFile(inputFile);
+
+			TestJSONData dataList = new Gson().fromJson(dataString,
+					TestJSONData.class);
+
+			if (dataList.getSearchFields() != null) {
+				List<String> keySet = new ArrayList<String>(
+						dataList.getSearchFields().keySet());
+				for (int i = 0; i < dataList.getSearchFields().size(); i++) {
+					testsProcessed
+							.add(new TestParamsProcessed(dataList.getUrl(),
+									keySet.get(i), dataList.getSearchFields()
+											.get(keySet.get(i)),
+									TestType.TEST1));
+				}
+			}
+		}
 
 		// Process all the data and return it.
 		List<Object[]> list = new ArrayList<Object[]>();
-//		for () {
-//			Object[] args = new Object[4];
-//			args[0] = ;
-//			args[1] = ;
-//			args[2] = ;
-//			args[3] = ;
-//			list.add(args);
-//		}
+		for (int i = 0; i < testsProcessed.size(); i++) {
+			Object[] args = new Object[4];
+			TestParamsProcessed tpp = testsProcessed.get(i);
+			args[0] = tpp.getTestUrl();
+			args[1] = tpp.getTestField();
+			args[2] = tpp.getTestValue();
+			args[3] = tpp.getTestType();
+			list.add(args);
+		}
 
 		return list;
 	}
@@ -93,8 +123,7 @@ public class DynamicGenerator {
 		TestResult res = null;
 
 		if (testType.equals(TestType.TEST1)) {
-			// Need to add parameters to each test with webdriver, url...
-			res = new SeleniumTests().test1();
+			res = new SeleniumTests().test1(driver, testUrl, field, value);
 		} else if (testType.equals(TestType.TEST2)) {
 			// Need to add parameters to each test with webdriver, url...
 			res = new SeleniumTests().test2();

@@ -10,18 +10,23 @@ public class TestResult {
 	private String testName;
 	private Map<String, String> args;
 
-	public TestResult(String url, boolean success, String errorMessage,
-			String testName, Map<String, String> args) {
+	public TestResult(String url, String testName, Map<String, String> args) {
 		super();
 		this.url = url;
-		this.success = success;
-		this.errorMessage = errorMessage;
 		this.testName = testName;
 		this.args = args;
 	}
 
 	public boolean isSuccess() {
 		return success;
+	}
+
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
+	}
+
+	public void setSuccess(boolean success) {
+		this.success = success;
 	}
 
 	@Override

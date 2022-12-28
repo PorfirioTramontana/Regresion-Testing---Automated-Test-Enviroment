@@ -1,0 +1,7 @@
+{ 
+	"url" : "https://www.youtube.com/",
+	
+	"searchFields": { 
+		"search":"Hello world!"
+	}
+}
