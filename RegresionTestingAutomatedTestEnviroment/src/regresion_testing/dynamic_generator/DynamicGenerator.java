@@ -18,7 +18,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 import com.google.gson.Gson;
 
@@ -40,8 +41,12 @@ public class DynamicGenerator {
 
 	@BeforeClass
 	public static void setup() {
+		// Cookies Initialization. Have to move the path into the config.json
+		FirefoxOptions options = new FirefoxOptions();
+		options.addArguments("-profile",
+				"C:\\Users\\pablo\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\jw3wcbv0.default-release");
 		// Webdriver Initialization
-		driver = new ChromeDriver();
+		driver = new FirefoxDriver(options);
 		driver.manage().window().maximize();
 	}
 

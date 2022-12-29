@@ -27,7 +27,7 @@ public class SeleniumTests {
 			e.printStackTrace();
 		}
 
-		WebElement element = driver.findElement(By.id(field));
+		WebElement element = driver.findElement(By.xpath(field));
 		element.sendKeys(value);
 		element.submit();
 
