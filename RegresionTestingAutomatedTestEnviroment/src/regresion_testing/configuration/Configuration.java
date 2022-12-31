@@ -1,4 +1,4 @@
-package regresion_testing.generic_tests;
+package regresion_testing.configuration;
 
 public class Configuration {
 

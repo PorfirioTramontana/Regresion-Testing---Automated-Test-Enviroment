@@ -1,10 +1,13 @@
 { 
-	"url" : "https://www.google.com/",
+	"url" : [ 
+		"https://www.google.com/",
+		"https://es.wikipedia.org/",
+		"https://www.youtube.com/"
+		 ],
 	
 	"searchFields": { 
-		"/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input":"Hello world!",
-		"/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input":"Youtube",
-		"/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input":"Remote",
-		"/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input":"GeckoDriver"
+		"/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input" : [ "Hello World!" , "Santa", "Selenium", "Hola" ],
+		"/html/body/div[4]/div[1]/div[2]/div/div/form/div/input[1]" : [ "test" ],
+		"/html/body/ytd-app/div[1]/div/ytd-masthead/div[3]/div[2]/ytd-searchbox/form/div[1]/div[1]/input" : [ "Functional" ]
 	}
 }

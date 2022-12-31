@@ -4,6 +4,7 @@ import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
 
+import regresion_testing.configuration.ANSIConstants;
 import regresion_testing.dynamic_generator.DynamicGenerator;
 
 public class Main {
@@ -15,7 +16,12 @@ public class Main {
 			System.out.println(fail.toString());
 		}
 
-		System.out.println(res.wasSuccessful());
+		if (res.wasSuccessful())
+			System.out.print(ANSIConstants.ANSI_BOLD + ANSIConstants.ANSI_GREEN
+					+ "EXECUTION SUCCESSFUL " + ANSIConstants.ANSI_RESET);
+		else
+			System.out.print(ANSIConstants.ANSI_BOLD + ANSIConstants.ANSI_RED
+					+ "EXECUTION NOT SUCCESSFUL " + ANSIConstants.ANSI_RESET);
 	}
 
 }

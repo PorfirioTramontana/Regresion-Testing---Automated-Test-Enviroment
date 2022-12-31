@@ -1,3 +1,4 @@
-1º Need to install Firefox Browser
-2º While execution have no Firefox window open
+1º Need to install Firefox Browser.
+2º While execution have no Firefox window open.
 3º Before executing the code check that you have accepted the cookies of the website you want to perform the tests.
+4º Use always fullXpath.

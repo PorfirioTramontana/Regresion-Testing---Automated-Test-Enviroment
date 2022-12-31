@@ -1,0 +1,13 @@
+{ 
+	"url" : [ 
+		"https://www.uniovi.es/",
+		"https://www.lamoncloa.gob.es/",
+		"https://www3.animeflv.net/"
+		 ],
+	
+	"somethingFields": { 
+		"/html/body/div[3]/div[1]/div/div[2]/div[4]/ul/li[1]/a" : [ "Le universite" , "La universidad" , "Università" ],
+		"/html/body/div/div/div/div/div/form/header/div[1]/div/div[2]/div[2]/div/ul/li[1]/a/span" : [ "Presidente" ],
+		"/html/body/div[3]/div/div/div/main/div[1]/h2" : [ "Last episodes" , "Últimos episodios" ]
+	}
+}

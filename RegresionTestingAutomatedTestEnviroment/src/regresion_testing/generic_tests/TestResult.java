@@ -1,12 +1,14 @@
 package regresion_testing.generic_tests;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 public class TestResult {
 	private String url;
 	private boolean success;
-	private String errorMessage;
+	private String errorMessage = "No error apparently";
 	private String testName;
 	private Map<String, String> args;
 
@@ -52,8 +54,9 @@ public class TestResult {
 
 	@Override
 	public String toString() {
-		return "TestResult [url=" + url + ", success=" + success
-				+ ", errorMessage=" + errorMessage + ", testName=" + testName
-				+ ", args=" + args + "]";
+		List<String> keySet = new ArrayList<String>(args.keySet());
+		return " | testName=" + testName + " | url=" + url + " | input="
+				+ args.get(keySet.get(0)) + " | XPath=" + keySet.get(0)
+				+ " | errorMessage=" + errorMessage;
 	}
 }

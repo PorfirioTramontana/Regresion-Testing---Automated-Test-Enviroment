@@ -1,15 +1,13 @@
 package regresion_testing.dynamic_generator;
 
-import static org.junit.Assert.assertTrue;
-
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Stream;
 
 import org.junit.AfterClass;
@@ -23,8 +21,10 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 
 import com.google.gson.Gson;
 
+import regresion_testing.configuration.ANSIConstants;
+import regresion_testing.configuration.Configuration;
+import regresion_testing.configuration.TestJSONData;
 import regresion_testing.dynamic_generator.TestParamsProcessed.TestType;
-import regresion_testing.generic_tests.Configuration;
 import regresion_testing.generic_tests.SeleniumTests;
 import regresion_testing.generic_tests.TestResult;
 
@@ -41,6 +41,9 @@ public class DynamicGenerator {
 
 	@BeforeClass
 	public static void setup() {
+		// Selenium warnings silence
+		System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE,
+				"null");
 		// Cookies Initialization. Have to move the path into the config.json
 		FirefoxOptions options = new FirefoxOptions();
 		options.addArguments("-profile",
@@ -48,6 +51,10 @@ public class DynamicGenerator {
 		// Webdriver Initialization
 		driver = new FirefoxDriver(options);
 		driver.manage().window().maximize();
+		// Start of the execution
+		System.out.println(ANSIConstants.ANSI_BOLD
+				+ "REGRESION TESTING - AUTOMATED TEST ENVIROMENT"
+				+ ANSIConstants.ANSI_RESET);
 	}
 
 	/**
@@ -69,7 +76,7 @@ public class DynamicGenerator {
 	}
 
 	@Parameterized.Parameters
-	public static Collection data() throws IOException {
+	public static List<Object[]> data() throws IOException {
 		// Obtain JSON data
 		Path inputFile = FileSystems.getDefault().getPath(jsonRoute);
 		String dataString = readFile(inputFile);
@@ -88,17 +95,14 @@ public class DynamicGenerator {
 			TestJSONData dataList = new Gson().fromJson(dataString,
 					TestJSONData.class);
 
-			if (dataList.getSearchFields() != null) {
-				List<String> keySet = new ArrayList<String>(
-						dataList.getSearchFields().keySet());
-				for (int i = 0; i < dataList.getSearchFields().size(); i++) {
-					testsProcessed
-							.add(new TestParamsProcessed(dataList.getUrl(),
-									keySet.get(i), dataList.getSearchFields()
-											.get(keySet.get(i)),
-									TestType.TEST1));
-				}
-			}
+			// If wanted to add more tests, add them below with the
+			// testProcessor method.
+
+			testProcessor(dataList.getSearchFields(), dataList.getUrl(),
+					TestType.TEST1);
+
+			testProcessor(dataList.getSomethingFields(), dataList.getUrl(),
+					TestType.TEST2);
 		}
 
 		// Process all the data and return it.
@@ -116,6 +120,23 @@ public class DynamicGenerator {
 		return list;
 	}
 
+	private static void testProcessor(Map<String, List<String>> map,
+			String[] urls, TestType testType) {
+		if (map != null) {
+			List<String> keySet = new ArrayList<String>(map.keySet());
+			// Run through the Map of Fields
+			for (int i = 0; i < map.size(); i++) {
+				// Update the URL each time the XPath changes
+				String actualUrl = urls[i];
+				// Read each Value inside the Key
+				for (String valueInside : map.get(keySet.get(i))) {
+					testsProcessed.add(new TestParamsProcessed(actualUrl,
+							keySet.get(i), valueInside, testType));
+				}
+			}
+		}
+	}
+
 	/**
 	 * It is executed n times where n is the size of the Collection returned in
 	 * the data() method and each time with different data is used ( the data is
@@ -131,18 +152,18 @@ public class DynamicGenerator {
 			res = new SeleniumTests().test1(driver, testUrl, field, value);
 		} else if (testType.equals(TestType.TEST2)) {
 			// Need to add parameters to each test with webdriver, url...
-			res = new SeleniumTests().test2();
+			res = new SeleniumTests().test2(driver, testUrl, field, value);
 		} else if (testType.equals(TestType.TEST3)) {
 			// Need to add parameters to each test with webdriver, url...
 			res = new SeleniumTests().test3();
 		}
 
-		assertTrue(res.isSuccess());
-
 		if (res.isSuccess())
-			System.out.print("OK ");
+			System.out.print(ANSIConstants.ANSI_GREEN + "PASSED"
+					+ ANSIConstants.ANSI_RESET);
 		else
-			System.out.print("ERR ");
+			System.out.print(ANSIConstants.ANSI_RED + "FAILED"
+					+ ANSIConstants.ANSI_RESET);
 
 		System.out.println(res);
 	}
