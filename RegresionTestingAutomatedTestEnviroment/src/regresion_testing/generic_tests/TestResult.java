@@ -31,6 +31,28 @@ public class TestResult {
 		this.success = success;
 	}
 
+	public String getUrl() {
+		return url;
+	}
+
+	public String getErrorMessage() {
+		return errorMessage;
+	}
+
+	public String getTestName() {
+		return testName;
+	}
+
+	public String getArgKey() {
+		List<String> keySet = new ArrayList<String>(args.keySet());
+		return keySet.get(0);
+	}
+
+	public String getArgValue() {
+		List<String> keySet = new ArrayList<String>(args.keySet());
+		return args.get(keySet.get(0));
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(args, errorMessage, success, testName, url);
@@ -54,9 +76,9 @@ public class TestResult {
 
 	@Override
 	public String toString() {
-		List<String> keySet = new ArrayList<String>(args.keySet());
+
 		return " | testName=" + testName + " | url=" + url + " | input="
-				+ args.get(keySet.get(0)) + " | XPath=" + keySet.get(0)
-				+ " | errorMessage=" + errorMessage;
+				+ getArgValue() + " | XPath=" + getArgKey() + " | errorMessage="
+				+ errorMessage;
 	}
 }

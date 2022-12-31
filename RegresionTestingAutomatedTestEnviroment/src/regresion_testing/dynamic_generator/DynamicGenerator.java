@@ -23,6 +23,7 @@ import com.google.gson.Gson;
 
 import regresion_testing.configuration.ANSIConstants;
 import regresion_testing.configuration.Configuration;
+import regresion_testing.configuration.CsvExport;
 import regresion_testing.configuration.TestJSONData;
 import regresion_testing.dynamic_generator.TestParamsProcessed.TestType;
 import regresion_testing.generic_tests.SeleniumTests;
@@ -38,12 +39,13 @@ public class DynamicGenerator {
 	private static String jsonRoute = "config.json";
 	private static Configuration config;
 	private static List<TestParamsProcessed> testsProcessed;
+	private static CsvExport csvExport;
 
 	@BeforeClass
 	public static void setup() {
 		// Selenium warnings silence
 		System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE,
-				"null");
+				"GeckoDriverLog.txt");
 		// Cookies Initialization. Have to move the path into the config.json
 		FirefoxOptions options = new FirefoxOptions();
 		options.addArguments("-profile",
@@ -51,6 +53,11 @@ public class DynamicGenerator {
 		// Webdriver Initialization
 		driver = new FirefoxDriver(options);
 		driver.manage().window().maximize();
+		// Initialization export of csv
+		csvExport = new CsvExport();
+		String[] header = { "STATUS", "NAME", "URL", "INPUT", "XPATH",
+				"ERROR MESSAGE" };
+		csvExport.addCsvExport(header);
 		// Start of the execution
 		System.out.println(ANSIConstants.ANSI_BOLD
 				+ "REGRESION TESTING - AUTOMATED TEST ENVIROMENT"
@@ -158,14 +165,23 @@ public class DynamicGenerator {
 			res = new SeleniumTests().test3();
 		}
 
-		if (res.isSuccess())
+		String status;
+
+		if (res.isSuccess()) {
+			status = "PASSED";
 			System.out.print(ANSIConstants.ANSI_GREEN + "PASSED"
 					+ ANSIConstants.ANSI_RESET);
-		else
+		} else {
+			status = "FAILED";
 			System.out.print(ANSIConstants.ANSI_RED + "FAILED"
 					+ ANSIConstants.ANSI_RESET);
+		}
 
 		System.out.println(res);
+
+		String[] body = { status, res.getTestName(), res.getUrl(),
+				res.getArgValue(), res.getArgKey(), res.getErrorMessage() };
+		csvExport.addCsvExport(body);
 	}
 
 	/**
@@ -189,5 +205,6 @@ public class DynamicGenerator {
 	public static void end() {
 		// Closing browser windows related to this WebDriver.
 		driver.quit();
+		csvExport.export();
 	}
 }
