@@ -50,7 +50,7 @@ public class DynamicGenerator {
 		// Selenium warnings silence
 		System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE,
 				"GeckoDriverLog.txt");
-		// Webdriver Initialization
+		// Webdriver Initialization with specific options
 		FirefoxProfile profile = new FirefoxProfile();
 		profile.setPreference("network.cookie.cookieBehavior", 2);
 		FirefoxOptions options = new FirefoxOptions();
