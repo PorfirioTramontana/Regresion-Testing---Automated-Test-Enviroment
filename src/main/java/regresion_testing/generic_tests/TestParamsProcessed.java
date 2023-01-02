@@ -24,32 +24,16 @@ public class TestParamsProcessed {
 		return testUrl;
 	}
 
-	public void setTestUrl(String testUrl) {
-		this.testUrl = testUrl;
-	}
-
 	public String getTestField() {
 		return testField;
-	}
-
-	public void setTestField(String testField) {
-		this.testField = testField;
 	}
 
 	public String getTestValue() {
 		return testValue;
 	}
 
-	public void setTestValue(String testValue) {
-		this.testValue = testValue;
-	}
-
 	public TestType getTestType() {
 		return testType;
-	}
-
-	public void setTestType(TestType testType) {
-		this.testType = testType;
 	}
 
 }

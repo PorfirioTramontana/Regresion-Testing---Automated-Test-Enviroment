@@ -12,24 +12,12 @@ public class TestJSONData {
 		return url;
 	}
 
-	public void setUrl(String[] url) {
-		this.url = url;
-	}
-
 	public Map<String, List<String>> getSearchFields() {
 		return searchFields;
 	}
 
-	public void setSearchFields(Map<String, List<String>> searchFields) {
-		this.searchFields = searchFields;
-	}
-
 	public Map<String, List<String>> getSomethingFields() {
 		return somethingFields;
-	}
-
-	public void setSomethingFields(Map<String, List<String>> somethingFields) {
-		this.somethingFields = somethingFields;
 	}
 
 }
