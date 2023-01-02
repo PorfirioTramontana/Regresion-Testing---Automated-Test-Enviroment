@@ -1,4 +1,4 @@
-package regresion_testing.dynamic_generator;
+package dynamic_generator;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
