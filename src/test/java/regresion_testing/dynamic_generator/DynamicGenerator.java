@@ -44,7 +44,6 @@ public class DynamicGenerator {
 	private static List<TestParamsProcessed> testsProcessed;
 	private static CsvExport csvExport;
 
-	@SuppressWarnings("deprecation")
 	@BeforeClass
 	public static void setup() {
 		// Selenium warnings silence
