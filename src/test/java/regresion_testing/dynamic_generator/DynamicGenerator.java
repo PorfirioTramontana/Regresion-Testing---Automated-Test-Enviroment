@@ -27,8 +27,8 @@ import regresion_testing.configuration.CsvExport;
 import regresion_testing.generic_tests.SeleniumTests;
 import regresion_testing.generic_tests.TestJSONData;
 import regresion_testing.generic_tests.TestParamsProcessed;
-import regresion_testing.generic_tests.TestResult;
 import regresion_testing.generic_tests.TestParamsProcessed.TestType;
+import regresion_testing.generic_tests.TestResult;
 
 @RunWith(Parameterized.class)
 public class DynamicGenerator {
@@ -49,8 +49,7 @@ public class DynamicGenerator {
 				"GeckoDriverLog.txt");
 		// Cookies Initialization. Have to move the path into the config.json
 		FirefoxOptions options = new FirefoxOptions();
-		options.addArguments("-profile",
-				"C:\\Users\\pablo\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\jw3wcbv0.default-release");
+		options.addArguments("-profile", "resources\\jw3wcbv0.default-release");
 		// Webdriver Initialization
 		driver = new FirefoxDriver(options);
 		driver.manage().window().maximize();

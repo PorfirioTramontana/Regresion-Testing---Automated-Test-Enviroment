@@ -1,0 +1,190 @@
+1672488605923	Sync.Status	INFO	Resetting Status.
+1672488605923	Sync.Status	DEBUG	Status.service: undefined => success.status_ok
+1672488605925	FirefoxAccounts	TRACE	initializing new storage manager
+1672488605925	FirefoxAccounts	TRACE	starting fetch of json user data
+1672488605926	Sync.SyncScheduler	TRACE	Setting SyncScheduler policy values to defaults.
+1672488605926	Sync.SyncScheduler	DEBUG	Clearing sync triggers and the global score.
+1672488605926	Sync.Service	INFO	Loading Weave 1.110.0
+1672488605926	Sync.Engine.Clients	DEBUG	Engine constructed
+1672488605927	Sync.Engine.Clients	DEBUG	Resetting clients last sync time
+1672488605929	Sync.Engine.Addons	DEBUG	Engine constructed
+1672488605930	FirefoxAccounts	TRACE	finished fetch of json user data - took: 5
+1672488605930	FirefoxAccounts	DEBUG	reading secure storage with existing: []
+1672488605930	FirefoxAccounts	TRACE	starting fetch of user data from the login manager
+1672488605934	FirefoxAccounts	DEBUG	secure read fetched items: ["scopedKeys","kSync","kXCS","kExtSync","kExtKbHash"]
+1672488605934	FirefoxAccounts	TRACE	initializing of new storage manager done
+1672488605936	Sync.Engine.Addons	DEBUG	SyncEngine initialized: addons
+1672488605939	Sync.Engine.Bookmarks	DEBUG	Engine constructed
+1672488605942	Sync.Engine.Bookmarks	DEBUG	SyncEngine initialized: bookmarks
+1672488605943	Sync.Engine.Forms	DEBUG	Engine constructed
+1672488605946	Sync.Engine.Forms	DEBUG	SyncEngine initialized: forms
+1672488605947	Sync.Engine.History	DEBUG	Engine constructed
+1672488605948	Sync.Engine.History	DEBUG	SyncEngine initialized: history
+1672488605949	Sync.Engine.Passwords	DEBUG	Engine constructed
+1672488605953	Sync.Engine.Passwords	DEBUG	SyncEngine initialized: passwords
+1672488605953	Sync.Engine.Prefs	DEBUG	Engine constructed
+1672488605955	Sync.Engine.Prefs	DEBUG	SyncEngine initialized: prefs
+1672488605956	Sync.Engine.Tabs	DEBUG	Engine constructed
+1672488605959	Sync.Engine.Tabs	DEBUG	SyncEngine initialized: tabs
+1672488605960	Sync.Engine.Tabs	INFO	Got a bridged engine!
+1672488605960	Sync.Engine.Tabs	DEBUG	Resetting tabs last sync time
+1672488605986	Sync.Engine.CreditCards	DEBUG	Engine constructed
+1672488605998	Sync.Engine.CreditCards	DEBUG	SyncEngine initialized: creditcards
+1672488605999	Sync.Engine.Extension-Storage	DEBUG	Engine constructed
+1672488606006	Sync.Engine.Extension-Storage	DEBUG	SyncEngine initialized: extension-storage
+1672488606006	Sync.Service	INFO	Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:108.0) Gecko/20100101 Firefox/108.0
+1672488606007	Sync.AddonsReconciler	INFO	Registering as Add-on Manager listener.
+1672488606007	Sync.AddonsReconciler	DEBUG	Adding change listener.
+1672488606007	Sync.Engine.History.Tracker	INFO	Adding Places observer.
+1672488606016	FirefoxAccounts	DEBUG	FxAccountsProfileClient: Initialized
+1672488606016	FirefoxAccounts	DEBUG	FxAccountsProfileClient: Requested profile
+1672488606016	FirefoxAccounts	DEBUG	getOAuthToken enter
+1672488606017	FirefoxAccounts	TRACE	getCachedToken returning cached token
+1672488606017	FirefoxAccounts	DEBUG	getOAuthToken returning a cached token
+1672488606017	Services.Common.RESTRequest	DEBUG	GET request to https://profile.accounts.firefox.com/v1/profile
+1672488606021	Sync.Service	DEBUG	User-Agent: Firefox/108.0.1 (Windows NT 10.0; Win64; x64) FxSync/1.110.0.20221215175817.desktop
+1672488606021	Sync.Service	INFO	Starting sync at 2022-12-31 13:10:06 in browser session paEc4QJRaDby
+1672488606021	Sync.Service	DEBUG	In sync: should login.
+1672488606021	Sync.Service	INFO	User logged in successfully - verifying login.
+1672488606022	Sync.SyncAuthManager	DEBUG	unlockAndVerifyAuthState already has (or can fetch) sync keys
+1672488606022	Sync.Status	DEBUG	Status.login: success.login => success.status_ok
+1672488606022	Sync.Status	DEBUG	Status.service: success.status_ok => error.login.failed
+1672488606022	Sync.Service	DEBUG	Fetching unlocked auth state returned success.status_ok
+1672488606022	Sync.SyncAuthManager	INFO	Getting sync key
+1672488606022	Sync.SyncAuthManager	INFO	Getting a sync token from: https://token.services.mozilla.com/1.0/sync/1.5
+1672488606022	Sync.SyncAuthManager	DEBUG	Getting a token using OAuth
+1672488606022	FirefoxAccounts	DEBUG	getOAuthToken enter
+1672488606022	FirefoxAccounts	TRACE	getCachedToken returning cached token
+1672488606022	FirefoxAccounts	DEBUG	getOAuthToken returning a cached token
+1672488606022	Services.Common.TokenServerClient	DEBUG	Beginning OAuth token exchange: https://token.services.mozilla.com/1.0/sync/1.5
+1672488606022	Services.Common.RESTRequest	DEBUG	GET request to https://token.services.mozilla.com/1.0/sync/1.5
+1672488606026	FirefoxAccounts	DEBUG	FxAccountsWebChannel registered: account_updates with origin https://accounts.firefox.com
+1672488606045	FirefoxAccounts	INFO	fetching updated device list
+1672488606050	Services.Common.RESTRequest	DEBUG	GET request to https://api.accounts.firefox.com/v1/account/devices
+1672488606293	Services.Common.RESTRequest	DEBUG	GET https://token.services.mozilla.com/1.0/sync/1.5 401
+1672488606293	Services.Common.TokenServerClient	DEBUG	Got token response: 401
+1672488606293	Services.Common.TokenServerClient	INFO	Server-reported error: {"location":"body","name":"","description":"Unauthorized"}
+1672488606294	Services.Common.RESTRequest	DEBUG	POST request to https://api.accounts.firefox.com/v1/oauth/destroy
+1672488606294	Services.Common.RESTRequest	DEBUG	POST Length: 969
+1672488606294	FirefoxAccounts	DEBUG	_updateAccountData with items: ["oauthTokens"]
+1672488606294	FirefoxAccounts	DEBUG	writing plain storage: ["email","sessionToken","uid","verified","device","oauthTokens","encryptedSendTabKeys","profileCache"]
+1672488606294	FirefoxAccounts	TRACE	starting write of json user data: ["email","sessionToken","uid","verified","device","oauthTokens","encryptedSendTabKeys","profileCache"]
+1672488606294	Sync.SyncAuthManager	WARN	Token server returned 401, retrying token fetch with fresh credentials
+1672488606295	Sync.SyncAuthManager	INFO	Getting a sync token from: https://token.services.mozilla.com/1.0/sync/1.5
+1672488606295	Sync.SyncAuthManager	DEBUG	Getting a token using OAuth
+1672488606295	FirefoxAccounts	DEBUG	getOAuthToken enter
+1672488606296	Services.Common.RESTRequest	DEBUG	POST request to https://api.accounts.firefox.com/v1/oauth/token
+1672488606296	Services.Common.RESTRequest	DEBUG	POST Length: 127
+1672488606298	FirefoxAccounts	TRACE	finished write of json user data - took: 4
+1672488606298	FirefoxAccounts	DEBUG	writing secure storage: ["scopedKeys","kSync","kXCS","kExtSync","kExtKbHash"]
+1672488606298	FirefoxAccounts	TRACE	starting write of user data to the login manager
+1672488606306	FirefoxAccounts	TRACE	finished write of user data to the login manager
+1672488606628	Sync.Engine.Tabs.Tracker	DEBUG	Detected a tab change, but conditions aren't met for a quick write or a score bump
+1672488606802	Services.Common.RESTRequest	DEBUG	GET https://profile.accounts.firefox.com/v1/profile 401
+1672488606803	FirefoxAccounts	INFO	Fetching the profile returned a 401 - revoking our token and retrying
+1672488606803	Services.Common.RESTRequest	DEBUG	POST request to https://api.accounts.firefox.com/v1/oauth/destroy
+1672488606803	Services.Common.RESTRequest	DEBUG	POST Length: 900
+1672488606803	FirefoxAccounts	DEBUG	_updateAccountData with items: ["oauthTokens"]
+1672488606803	FirefoxAccounts	DEBUG	writing plain storage: ["email","sessionToken","uid","verified","device","oauthTokens","encryptedSendTabKeys","profileCache"]
+1672488606803	FirefoxAccounts	TRACE	starting write of json user data: ["email","sessionToken","uid","verified","device","oauthTokens","encryptedSendTabKeys","profileCache"]
+1672488606803	FirefoxAccounts	DEBUG	getOAuthToken enter
+1672488606804	Services.Common.RESTRequest	DEBUG	POST request to https://api.accounts.firefox.com/v1/oauth/token
+1672488606804	Services.Common.RESTRequest	DEBUG	POST Length: 81
+1672488606804	FirefoxAccounts	TRACE	finished write of json user data - took: 1
+1672488606804	FirefoxAccounts	DEBUG	writing secure storage: ["scopedKeys","kSync","kXCS","kExtSync","kExtKbHash"]
+1672488606804	FirefoxAccounts	TRACE	starting write of user data to the login manager
+1672488606813	FirefoxAccounts	TRACE	finished write of user data to the login manager
+1672488606864	Sync.Engine.Tabs.Tracker	DEBUG	Detected a tab change, but conditions aren't met for a quick write or a score bump
+1672488606881	Services.Common.RESTRequest	DEBUG	GET https://api.accounts.firefox.com/v1/account/devices 200
+1672488606882	Hawk	DEBUG	(Response) /account/devices: code: 200 - Status text: OK
+1672488606882	Hawk	DEBUG	Clock offset vs https://api.accounts.firefox.com/v1: 118
+1672488606882	FirefoxAccounts	INFO	Got new device list: db2373f1b6da4994217e22f560ecb5be
+1672488606882	FirefoxAccounts	INFO	updating the cache
+1672488607042	Services.Common.RESTRequest	DEBUG	POST https://api.accounts.firefox.com/v1/oauth/destroy 200
+1672488607042	Hawk	DEBUG	(Response) /oauth/destroy: code: 200 - Status text: OK
+1672488607042	Hawk	DEBUG	Clock offset vs https://api.accounts.firefox.com/v1: -42
+1672488607131	Services.Common.RESTRequest	DEBUG	POST https://api.accounts.firefox.com/v1/oauth/token 200
+1672488607131	Hawk	DEBUG	(Response) /oauth/token: code: 200 - Status text: OK
+1672488607131	Hawk	DEBUG	Clock offset vs https://api.accounts.firefox.com/v1: -131
+1672488607131	FirefoxAccounts	DEBUG	_updateAccountData with items: ["oauthTokens"]
+1672488607131	FirefoxAccounts	DEBUG	writing plain storage: ["email","sessionToken","uid","verified","device","oauthTokens","encryptedSendTabKeys","profileCache"]
+1672488607131	FirefoxAccounts	TRACE	starting write of json user data: ["email","sessionToken","uid","verified","device","oauthTokens","encryptedSendTabKeys","profileCache"]
+1672488607131	Services.Common.TokenServerClient	DEBUG	Beginning OAuth token exchange: https://token.services.mozilla.com/1.0/sync/1.5
+1672488607131	Services.Common.RESTRequest	DEBUG	GET request to https://token.services.mozilla.com/1.0/sync/1.5
+1672488607132	FirefoxAccounts	TRACE	finished write of json user data - took: 1
+1672488607132	FirefoxAccounts	DEBUG	writing secure storage: ["scopedKeys","kSync","kXCS","kExtSync","kExtKbHash"]
+1672488607132	FirefoxAccounts	TRACE	starting write of user data to the login manager
+1672488607140	FirefoxAccounts	TRACE	finished write of user data to the login manager
+1672488607183	Services.Common.RESTRequest	DEBUG	POST https://api.accounts.firefox.com/v1/oauth/token 200
+1672488607184	Hawk	DEBUG	(Response) /oauth/token: code: 200 - Status text: OK
+1672488607184	Hawk	DEBUG	Clock offset vs https://api.accounts.firefox.com/v1: -184
+1672488607184	FirefoxAccounts	DEBUG	_updateAccountData with items: ["oauthTokens"]
+1672488607184	FirefoxAccounts	DEBUG	writing plain storage: ["email","sessionToken","uid","verified","device","oauthTokens","encryptedSendTabKeys","profileCache"]
+1672488607184	FirefoxAccounts	TRACE	starting write of json user data: ["email","sessionToken","uid","verified","device","oauthTokens","encryptedSendTabKeys","profileCache"]
+1672488607184	Services.Common.RESTRequest	DEBUG	GET request to https://profile.accounts.firefox.com/v1/profile
+1672488607185	FirefoxAccounts	TRACE	finished write of json user data - took: 1
+1672488607185	FirefoxAccounts	DEBUG	writing secure storage: ["scopedKeys","kSync","kXCS","kExtSync","kExtKbHash"]
+1672488607185	FirefoxAccounts	TRACE	starting write of user data to the login manager
+1672488607193	FirefoxAccounts	TRACE	finished write of user data to the login manager
+1672488607205	Sync.Engine.Tabs.Tracker	DEBUG	Detected a tab change, but conditions aren't met for a quick write or a score bump
+1672488607353	Services.Common.RESTRequest	DEBUG	GET https://token.services.mozilla.com/1.0/sync/1.5 200
+1672488607353	Services.Common.TokenServerClient	DEBUG	Got token response: 200
+1672488607353	Services.Common.TokenServerClient	DEBUG	Successful token response
+1672488607353	Sync.BulkKeyBundle	INFO	BulkKeyBundle being created for undefined
+1672488607353	Sync.Status	DEBUG	Status.login: success.status_ok => success.login
+1672488607353	Sync.Status	DEBUG	Status.service: error.login.failed => success.status_ok
+1672488607353	Sync.SyncAuthManager	DEBUG	_findCluster returning https://sync-1-us-west1-g.sync.services.mozilla.com/1.5/202385022/
+1672488607353	Sync.SyncAuthManager	DEBUG	Cluster value = https://sync-1-us-west1-g.sync.services.mozilla.com/1.5/202385022/
+1672488607353	Sync.SyncAuthManager	DEBUG	Setting cluster to https://sync-1-us-west1-g.sync.services.mozilla.com/1.5/202385022/
+1672488607353	Sync.Service	DEBUG	Caching URLs under storage user base: https://sync-1-us-west1-g.sync.services.mozilla.com/1.5/202385022/
+1672488607490	Services.Common.RESTRequest	DEBUG	GET https://profile.accounts.firefox.com/v1/profile 304
+1672488607538	Sync.Engine.Tabs.Tracker	DEBUG	Detected a tab change, but conditions aren't met for a quick write or a score bump
+1672488607542	Services.Common.RESTRequest	DEBUG	POST https://api.accounts.firefox.com/v1/oauth/destroy 200
+1672488607542	Hawk	DEBUG	(Response) /oauth/destroy: code: 200 - Status text: OK
+1672488607542	Hawk	DEBUG	Clock offset vs https://api.accounts.firefox.com/v1: 458
+1672488607635	Sync.SyncScheduler	DEBUG	Next sync in 3600000 ms. (why=schedule)
+1672488607646	Sync.Resource	DEBUG	GET success 200 https://sync-1-us-west1-g.sync.services.mozilla.com/1.5/202385022/info/collections
+1672488607647	Sync.Service	DEBUG	Fetching server configuration: https://sync-1-us-west1-g.sync.services.mozilla.com/1.5/202385022/info/configuration
+1672488607647	FirefoxAccounts	TRACE	not checking freshness of profile as it remains recent
+1672488607737	Sync.Engine.Tabs.Tracker	DEBUG	Detected a tab change, but conditions aren't met for a quick write or a score bump
+1672488607819	Sync.Resource	DEBUG	GET success 200 https://sync-1-us-west1-g.sync.services.mozilla.com/1.5/202385022/info/configuration
+1672488607819	Sync.Service	DEBUG	Fetching global metadata record
+1672488607820	FirefoxAccounts	TRACE	not checking freshness of profile as it remains recent
+1672488608034	Sync.Engine.Tabs.Tracker	DEBUG	Detected a tab change, but conditions aren't met for a quick write or a score bump
+1672488608036	Sync.Resource	DEBUG	GET success 200 https://sync-1-us-west1-g.sync.services.mozilla.com/1.5/202385022/storage/meta/global
+1672488608037	Sync.Service	DEBUG	Clearing cached meta record. metaModified is undefined, setting to 1672321187.66
+1672488608037	FirefoxAccounts	TRACE	not checking freshness of profile as it remains recent
+1672488608159	Sync.Engine.Tabs.Tracker	DEBUG	Detected a tab change, but conditions aren't met for a quick write or a score bump
+1672488608244	Sync.Resource	DEBUG	GET success 200 https://sync-1-us-west1-g.sync.services.mozilla.com/1.5/202385022/storage/meta/global
+1672488608244	Sync.Service	DEBUG	Weave Version: 1.110.0 Local Storage: 5 Remote Storage: 5
+1672488608244	Sync.Service	DEBUG	Fetching and verifying -- or generating -- symmetric keys.
+1672488608244	Sync.Service	INFO	Testing info/collections: {"tabs":1672323538.01,"meta":1672321187.66,"prefs":1672322067.42,"crypto":1672321182.01,"history":1672323538.28,"passwords":1672321184.39,"forms":1672321931.1,"bookmarks":1672321185.48,"clients":1672323679.73}
+1672488608244	Sync.CollectionKeyManager	INFO	Testing for updateNeeded. Last modified: 0
+1672488608244	Sync.Service	INFO	collection keys reports that a key update is needed.
+1672488608244	FirefoxAccounts	TRACE	not checking freshness of profile as it remains recent
+1672488608304	Sync.Engine.Tabs.Tracker	DEBUG	Detected a tab change, but conditions aren't met for a quick write or a score bump
+1672488608454	Sync.Resource	DEBUG	GET success 200 https://sync-1-us-west1-g.sync.services.mozilla.com/1.5/202385022/storage/crypto/keys
+1672488608454	Sync.CollectionKeyManager	INFO	Updating collection keys...
+1672488608455	Sync.CollectionKeyManager	INFO	Setting collection keys contents. Our last modified: 0, input modified: 1672321182.01.
+1672488608455	Sync.BulkKeyBundle	INFO	BulkKeyBundle being created for [default]
+1672488608455	Sync.CollectionKeyManager	INFO	Processing downloaded per-collection keys.
+1672488608455	Sync.CollectionKeyManager	INFO	Clearing collection keys...
+1672488608455	Sync.CollectionKeyManager	INFO	Saving downloaded keys.
+1672488608455	Sync.CollectionKeyManager	INFO	Bumping last modified to 1672321182.01
+1672488608455	Sync.CollectionKeyManager	INFO	Collection keys updated.
+1672488608455	Sync.Status	DEBUG	Status.login: success.login => success.login
+1672488608455	Sync.Status	DEBUG	Status.service: success.status_ok => success.status_ok
+1672488608455	Sync.Service	DEBUG	Caching URLs under storage user base: https://sync-1-us-west1-g.sync.services.mozilla.com/1.5/202385022/
+1672488608455	Sync.SyncScheduler	DEBUG	Clearing sync triggers and the global score.
+1672488608457	Sync.Status	INFO	Resetting Status.
+1672488608457	Sync.Status	DEBUG	Status.service: success.status_ok => success.status_ok
+1672488608457	FirefoxAccounts	TRACE	not checking freshness of profile as it remains recent
+1672488608467	Sync.Engine.Tabs.Tracker	DEBUG	Detected a tab change, but conditions aren't met for a quick write or a score bump
+1672488608580	Sync.SyncScheduler	DEBUG	Clearing sync triggers and the global score.
+1672488608604	Sync.Resource	WARN	GET request to https://sync-1-us-west1-g.sync.services.mozilla.com/1.5/202385022/info/collections?v=1.110.0 failed: [Exception... "The connection was established, but no data was ever received"  nsresult: "0x804b0014 (NS_ERROR_NET_RESET)"  location: "<unknown>"  data: no] No traceback available
+1672488608605	Sync.Status	DEBUG	Status.sync: success.sync => error.login.reason.network
+1672488608605	Sync.Status	DEBUG	Status.service: success.status_ok => error.sync.failed
+1672488608605	Sync.ErrorHandler	ERROR	Sync encountered an error: [Exception... "The connection was established, but no data was ever received"  nsresult: "0x804b0014 (NS_ERROR_NET_RESET)"  location: "<unknown>"  data: no] No traceback available
+1672488608605	Sync.SyncScheduler	DEBUG	Client count: 0 -> 1
+1672488608606	Sync.SyncScheduler	DEBUG	Next sync in 3600000 ms. (why=reschedule)
+1672488608607	Sync.Service	DEBUG	Exception calling anonymous function: [Exception... "The connection was established, but no data was ever received"  nsresult: "0x804b0014 (NS_ERROR_NET_RESET)"  location: "<unknown>"  data: no] No traceback available
