@@ -4,8 +4,8 @@ import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
 
+import dynamic_generator.DynamicGenerator;
 import regresion_testing.configuration.ANSIConstants;
-import regresion_testing.dynamic_generator.DynamicGenerator;
 
 public class Main {
 

@@ -1,4 +1,4 @@
-package regresion_testing.dynamic_generator;
+package regresion_testing.generic_tests;
 
 public class TestParamsProcessed {
 

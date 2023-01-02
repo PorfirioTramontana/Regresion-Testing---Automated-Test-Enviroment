@@ -1,4 +1,4 @@
-package regresion_testing.dynamic_generator;
+package dynamic_generator;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -24,10 +24,11 @@ import com.google.gson.Gson;
 import regresion_testing.configuration.ANSIConstants;
 import regresion_testing.configuration.Configuration;
 import regresion_testing.configuration.CsvExport;
-import regresion_testing.configuration.TestJSONData;
-import regresion_testing.dynamic_generator.TestParamsProcessed.TestType;
 import regresion_testing.generic_tests.SeleniumTests;
+import regresion_testing.generic_tests.TestJSONData;
+import regresion_testing.generic_tests.TestParamsProcessed;
 import regresion_testing.generic_tests.TestResult;
+import regresion_testing.generic_tests.TestParamsProcessed.TestType;
 
 @RunWith(Parameterized.class)
 public class DynamicGenerator {

@@ -1,4 +1,4 @@
-package regresion_testing.configuration;
+package regresion_testing.generic_tests;
 
 import java.util.List;
 import java.util.Map;
