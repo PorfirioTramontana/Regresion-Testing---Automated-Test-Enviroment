@@ -18,6 +18,8 @@ import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.firefox.ProfilesIni;
 
 import com.google.gson.Gson;
 
@@ -47,10 +49,11 @@ public class DynamicGenerator {
 		// Selenium warnings silence
 		System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE,
 				"GeckoDriverLog.txt");
-		// Cookies Initialization. Have to move the path into the config.json
-		FirefoxOptions options = new FirefoxOptions();
-		options.addArguments("-profile", "resources\\jw3wcbv0.default-release");
 		// Webdriver Initialization
+		FirefoxProfile profile = new ProfilesIni().getProfile("default");
+		profile.setPreference("network.cookie.cookieBehavior", 2);
+		FirefoxOptions options = new FirefoxOptions();
+		options.setProfile(profile);
 		driver = new FirefoxDriver(options);
 		driver.manage().window().maximize();
 		// Initialization export of csv
