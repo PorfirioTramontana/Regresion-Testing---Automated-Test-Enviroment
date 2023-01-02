@@ -1,4 +1,4 @@
-name: Workflow for Codecov Regresion-Testing - Automated-Test-Enviroment
+name: Workflow for RT-ATE
 
 on: [push, pull_request]
 
