@@ -1,6 +1,11 @@
 name: Workflow for RT-ATE
 
-on: [pull_request]
+on: 
+  push:
+      branches:
+        - master
+  pull_request:
+      types: [opened, synchronize, reopened]
 
 jobs:
   run:
@@ -24,13 +29,13 @@ jobs:
       - name: Install dependencies
         run: mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
       - name: Cache SonarCloud packages
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
           path: ~/.sonar/cache
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
       - name: Cache Maven packages
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
