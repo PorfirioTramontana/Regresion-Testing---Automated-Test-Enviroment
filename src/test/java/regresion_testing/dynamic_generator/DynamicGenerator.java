@@ -19,7 +19,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
-import org.openqa.selenium.firefox.ProfilesIni;
 
 import com.google.gson.Gson;
 
@@ -50,7 +49,7 @@ public class DynamicGenerator {
 		System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE,
 				"GeckoDriverLog.txt");
 		// Webdriver Initialization
-		FirefoxProfile profile = new ProfilesIni().getProfile("default");
+		FirefoxProfile profile = new FirefoxProfile();
 		profile.setPreference("network.cookie.cookieBehavior", 2);
 		FirefoxOptions options = new FirefoxOptions();
 		options.setProfile(profile);
