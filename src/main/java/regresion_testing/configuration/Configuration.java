@@ -10,8 +10,4 @@ public class Configuration {
 	public String[] getJsonTests() {
 		return jsonTests;
 	}
-
-	public void setJsonTests(String[] jsonTests) {
-		this.jsonTests = jsonTests;
-	}
 }
