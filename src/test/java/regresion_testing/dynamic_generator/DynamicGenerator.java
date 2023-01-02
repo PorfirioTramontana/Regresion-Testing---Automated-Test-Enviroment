@@ -8,6 +8,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
 
 import org.junit.AfterClass;
@@ -43,6 +44,7 @@ public class DynamicGenerator {
 	private static List<TestParamsProcessed> testsProcessed;
 	private static CsvExport csvExport;
 
+	@SuppressWarnings("deprecation")
 	@BeforeClass
 	public static void setup() {
 		// Selenium warnings silence
@@ -53,8 +55,12 @@ public class DynamicGenerator {
 		profile.setPreference("network.cookie.cookieBehavior", 2);
 		FirefoxOptions options = new FirefoxOptions();
 		options.setProfile(profile);
+		options.addArguments("--no-sandbox");
+		options.addArguments("--disable-dev-shm-usage");
+		options.addArguments("--headless");
 		driver = new FirefoxDriver(options);
 		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		// Initialization export of csv
 		csvExport = new CsvExport();
 		String[] header = { "STATUS", "NAME", "URL", "INPUT", "XPATH",
