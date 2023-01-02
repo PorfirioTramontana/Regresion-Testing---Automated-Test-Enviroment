@@ -13,9 +13,8 @@ jobs:
         with:
           java-version: 17
       - name: Geckodriver install
-    	steps:
-		  - uses: browser-actions/setup-geckodriver@latest
-		  - run: geckodriver --version
+		uses: browser-actions/setup-geckodriver@latest
+		run: geckodriver --version
       - name: Install dependencies
         run: mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
       - name: Run tests and collect coverage
