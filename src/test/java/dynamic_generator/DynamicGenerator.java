@@ -39,7 +39,7 @@ public class DynamicGenerator {
 	private String field;
 	private String value;
 	private TestType testType;
-	private static String jsonRoute = "config.json";
+	private static String jsonRoute = "files\\config.json";
 	private static Configuration config;
 	private static List<TestParamsProcessed> testsProcessed;
 	private static CsvExport csvExport;
