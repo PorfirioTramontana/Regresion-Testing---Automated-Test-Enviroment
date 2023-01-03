@@ -39,7 +39,7 @@ public class DynamicGenerator {
 	private String field;
 	private String value;
 	private TestType testType;
-	private static String jsonRoute = "config.json";
+	private static String jsonRoute = "files\\input\\config.json";
 	private static Configuration config;
 	private static List<TestParamsProcessed> testsProcessed;
 	private static CsvExport csvExport;
@@ -49,7 +49,7 @@ public class DynamicGenerator {
 	public static void setup() {
 		// Selenium warnings silence
 		System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE,
-				"GeckoDriverLog.txt");
+				"files\\output\\GeckoDriverLog.txt");
 		// Webdriver Initialization with specific options
 		FirefoxProfile profile = new FirefoxProfile();
 		profile.setPreference("network.cookie.cookieBehavior", 2);
@@ -57,7 +57,7 @@ public class DynamicGenerator {
 		options.setProfile(profile);
 		options.addArguments("--no-sandbox");
 		options.addArguments("--disable-dev-shm-usage");
-		options.addArguments("--headless");
+//		options.addArguments("--headless");
 		driver = new FirefoxDriver(options);
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -114,10 +114,13 @@ public class DynamicGenerator {
 			// testProcessor method.
 
 			testProcessor(dataList.getSearchFields(), dataList.getUrl(),
-					TestType.TEST1);
+					TestType.SEARCH);
 
-			testProcessor(dataList.getSomethingFields(), dataList.getUrl(),
-					TestType.TEST2);
+			testProcessor(dataList.getCheckFields(), dataList.getUrl(),
+					TestType.CHECK);
+
+			testProcessor(dataList.getComoboboxFields(), dataList.getUrl(),
+					TestType.COMBOBOX);
 		}
 
 		// Process all the data and return it.
@@ -163,14 +166,13 @@ public class DynamicGenerator {
 	public void dynamicTest() {
 		TestResult res = null;
 
-		if (testType.equals(TestType.TEST1)) {
-			res = new SeleniumTests().test1(driver, testUrl, field, value);
-		} else if (testType.equals(TestType.TEST2)) {
-			// Need to add parameters to each test with webdriver, url...
-			res = new SeleniumTests().test2(driver, testUrl, field, value);
-		} else if (testType.equals(TestType.TEST3)) {
-			// Need to add parameters to each test with webdriver, url...
-//			res = new SeleniumTests().test3();
+		if (testType.equals(TestType.SEARCH)) {
+			res = new SeleniumTests().searchTest(driver, testUrl, field, value);
+		} else if (testType.equals(TestType.CHECK)) {
+			res = new SeleniumTests().checkTest(driver, testUrl, field, value);
+		} else if (testType.equals(TestType.COMBOBOX)) {
+			res = new SeleniumTests().comboboxTest(driver, testUrl, field,
+					value);
 		}
 
 		String status;

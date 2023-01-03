@@ -3,7 +3,7 @@ package regresion_testing.generic_tests;
 public class TestParamsProcessed {
 
 	public enum TestType {
-		TEST1, TEST2, TEST3
+		SEARCH, CHECK, COMBOBOX
 	};
 
 	private String testUrl;
