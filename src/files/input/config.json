@@ -1,0 +1,7 @@
+{
+	"jsonTests" : [ 
+		"src\\files\\input\\Search.json",
+		"src\\files\\input\\Check.json",
+		"src\\files\\input\\Combobox.json"
+	]
+}

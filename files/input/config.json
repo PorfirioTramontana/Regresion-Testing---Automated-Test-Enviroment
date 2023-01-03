@@ -1,7 +1,0 @@
-{
-	"jsonTests" : [ 
-		"files\\input\\Search.json",
-		"files\\input\\Check.json",
-		"files\\input\\Combobox.json"
-	]
-}

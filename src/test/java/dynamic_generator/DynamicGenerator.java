@@ -39,7 +39,7 @@ public class DynamicGenerator {
 	private String field;
 	private String value;
 	private TestType testType;
-	private static String jsonRoute = "files\\input\\config.json";
+	private static String jsonRoute = "src\\files\\input\\config.json";
 	private static Configuration config;
 	private static List<TestParamsProcessed> testsProcessed;
 	private static CsvExport csvExport;
@@ -49,7 +49,7 @@ public class DynamicGenerator {
 	public static void setup() {
 		// Selenium warnings silence
 		System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE,
-				"files\\output\\GeckoDriverLog.txt");
+				"src\\files\\output\\GeckoDriverLog.txt");
 		// Webdriver Initialization with specific options
 		FirefoxProfile profile = new FirefoxProfile();
 		profile.setPreference("network.cookie.cookieBehavior", 2);

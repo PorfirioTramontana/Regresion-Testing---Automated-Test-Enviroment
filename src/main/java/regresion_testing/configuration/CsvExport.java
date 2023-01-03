@@ -21,7 +21,7 @@ public class CsvExport {
 
 	public void export() {
 		try (CSVWriter writer = new CSVWriter(
-				new FileWriter("files\\output\\output.csv"));) {
+				new FileWriter("src\\files\\output\\output.csv"));) {
 			writer.writeAll(csvExport);
 		} catch (IOException e) {
 			System.err.println("Error while exporting to .csv");
