@@ -1,6 +1,7 @@
 {
 	"jsonTests" : [ 
-		"Test1.json",
-		"Test2.json"
+		"Search.json",
+		"Check.json",
+		"Combobox.json"
 	]
 }

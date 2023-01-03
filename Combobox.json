@@ -1,0 +1,13 @@
+{ 
+	"url" : [ 
+		"https://www.youtube.com/admin",
+		"https://testpages.herokuapp.com/styled/basic-ajax-test.html",
+		"https://holaAdios.com"
+		 ],
+	
+	"comboboxFields": {
+		"/html/body/div[1]/select" : [ "1" ], 
+		"/html/body/div/div[3]/form/div[1]/select" : [ "1" , "2" , "5" ],
+		"/html/body/div/select" : [ "1" ]
+	}
+}
