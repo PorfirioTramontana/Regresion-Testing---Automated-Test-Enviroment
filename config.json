@@ -1,0 +1,7 @@
+{
+	"jsonTests" : [ 
+		"Search.json",
+		"Check.json",
+		"Combobox.json"
+	]
+}

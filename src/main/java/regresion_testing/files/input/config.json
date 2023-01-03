@@ -1,7 +1,0 @@
-{
-	"jsonTests" : [ 
-		"src\\main\\java\\regresion_testing\\files\\input\\Search.json",
-		"src\\main\\java\\regresion_testing\\files\\input\\Check.json",
-		"src\\main\\java\\regresion_testing\\files\\input\\Combobox.json"
-	]
-}
