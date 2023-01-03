@@ -170,7 +170,7 @@ public class DynamicGenerator {
 			res = new SeleniumTests().test2(driver, testUrl, field, value);
 		} else if (testType.equals(TestType.TEST3)) {
 			// Need to add parameters to each test with webdriver, url...
-			res = new SeleniumTests().test3();
+//			res = new SeleniumTests().test3();
 		}
 
 		String status;

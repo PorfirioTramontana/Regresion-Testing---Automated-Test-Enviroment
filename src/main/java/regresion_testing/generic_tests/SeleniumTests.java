@@ -94,7 +94,7 @@ public class SeleniumTests {
 		return result;
 	}
 
-	public TestResult test3() {
-		return null;
-	}
+//	public TestResult test3() {
+//		return null;
+//	}
 }
