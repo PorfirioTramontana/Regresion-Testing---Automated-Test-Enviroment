@@ -2,12 +2,14 @@
 	"url" : [ 
 		"https://www.uniovi.es/",
 		"https://www.newworld.com/es-es",
+		"https://www3.animeflv.net/",
 		"https://www3.animeflv.net/"
 		 ],
 	
 	"checkFields": { 
 		"/html/body/div[3]/div[1]/div/div[2]/div[4]/ul/li[1]/a" : [ "Le universite" , "La universidad" , "Università" ],
 		"/html/body/header/div/div[2]/ul/li[1]/a" : [ "JUEGO" ],
-		"/html/body/div[3]/div/div/div/main/div[1]/h2" : [ "Last episodes" , "Últimos episodios" ]
+		"/html/body/div[3]/div/div/div/main/div[1]/h2" : [ "Last episodes" , "Últimos episodios" ],
+		"/html/body/div[3]/h2" : [ "Error :C" ]
 	}
 }
