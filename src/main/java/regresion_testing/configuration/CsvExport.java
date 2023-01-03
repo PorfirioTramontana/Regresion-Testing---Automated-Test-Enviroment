@@ -20,8 +20,8 @@ public class CsvExport {
 	}
 
 	public void export() {
-		try (CSVWriter writer = new CSVWriter(
-				new FileWriter("src\\files\\output\\output.csv"));) {
+		try (CSVWriter writer = new CSVWriter(new FileWriter(
+				"src\\main\\java\\regresion_testing\\files\\output\\output.csv"));) {
 			writer.writeAll(csvExport);
 		} catch (IOException e) {
 			System.err.println("Error while exporting to .csv");
