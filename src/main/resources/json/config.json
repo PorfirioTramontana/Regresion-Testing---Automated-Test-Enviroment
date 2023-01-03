@@ -1,0 +1,7 @@
+{
+	"jsonTests" : [ 
+		"src/main/resources/json/Search.json",
+		"src/main/resources/json/Check.json",
+		"src/main/resources/json/Combobox.json"
+	]
+}
