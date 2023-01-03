@@ -210,7 +210,7 @@ public class DynamicGenerator {
 	}
 
 	@AfterClass
-	public static void end() throws IOException {
+	public static void end() {
 		// Closing browser windows related to this WebDriver.
 		driver.quit();
 		csvExport.export();
