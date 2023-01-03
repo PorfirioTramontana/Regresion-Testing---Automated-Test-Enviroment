@@ -19,11 +19,8 @@ public class CsvExport {
 		csvExport = new ArrayList<String[]>();
 	}
 
-	public void export() {
-		try (CSVWriter writer = new CSVWriter(new FileWriter("output.csv"))) {
-			writer.writeAll(csvExport);
-		} catch (IOException e) {
-			System.err.println("Error while exporting to .csv");
-		}
+	public void export() throws IOException {
+		CSVWriter writer = new CSVWriter(new FileWriter("output.csv"));
+		writer.writeAll(csvExport);
 	}
 }
