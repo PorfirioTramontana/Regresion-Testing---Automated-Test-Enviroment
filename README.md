@@ -7,7 +7,7 @@
 
 ## Description
 
-Testing Augmentation technique which, starting from tests recorded with Selenium, generates sets of possible input values which, applied to those tests, generate new test cases. Thus, it is a technique that transforms simple test cases into data-driven tests for which the test data is stored in JSON files.
+Testing Augmentation technique which, starting from tests recorded with Selenium, generates sets of possible input values which, applied to those tests, generate new test cases. It is a technique that transforms simple test cases into data-driven tests for which the test data is stored in JSON files.
 
 
 ## Technologies used
@@ -26,10 +26,19 @@ Testing Augmentation technique which, starting from tests recorded with Selenium
 2º In the JSON test files use always fullXpath for the element you want to select.
 
 
-## How to run the tests
+## How to run the tests locally
 
 After executing the following command a detailed test report in csv format is generated.
 
 ```bash
 mvn -B test
 ```
+
+If you want to see the GeckDriver window in action you need to comment this lines in DynamicGenerator.java
+
+```bash
+options.addArguments("--no-sandbox");
+options.addArguments("--disable-dev-shm-usage");
+options.addArguments("--headless");
+```
+
