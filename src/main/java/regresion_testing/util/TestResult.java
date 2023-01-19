@@ -1,4 +1,4 @@
-package regresion_testing.generic_tests;
+package regresion_testing.util;
 
 import java.util.ArrayList;
 import java.util.List;

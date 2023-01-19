@@ -1,4 +1,4 @@
-package regresion_testing.configuration;
+package regresion_testing.util;
 
 public class ANSIConstants {
 	public static final String ANSI_RESET = "\u001B[0m";

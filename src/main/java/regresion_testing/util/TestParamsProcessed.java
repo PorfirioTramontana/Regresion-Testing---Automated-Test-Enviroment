@@ -1,18 +1,15 @@
-package regresion_testing.generic_tests;
+package regresion_testing.util;
+
+import regresion_testing.generic_tests.SeleniumTests;
 
 public class TestParamsProcessed {
-
-	public enum TestType {
-		SEARCH, CHECK, COMBOBOX
-	};
-
 	private String testUrl;
 	private String testField;
 	private String testValue;
-	private TestType testType;
+	private SeleniumTests testType;
 
 	public TestParamsProcessed(String testUrl, String testField,
-			String testValue, TestType testType) {
+			String testValue, SeleniumTests testType) {
 		super();
 		this.testUrl = testUrl;
 		this.testField = testField;
@@ -32,7 +29,7 @@ public class TestParamsProcessed {
 		return testValue;
 	}
 
-	public TestType getTestType() {
+	public SeleniumTests getTestType() {
 		return testType;
 	}
 

@@ -23,14 +23,16 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 
 import com.google.gson.Gson;
 
-import regresion_testing.configuration.ANSIConstants;
-import regresion_testing.configuration.Configuration;
-import regresion_testing.configuration.CsvExport;
+import regresion_testing.generic_tests.CheckTest;
+import regresion_testing.generic_tests.ComboboxTest;
+import regresion_testing.generic_tests.SearchTest;
 import regresion_testing.generic_tests.SeleniumTests;
-import regresion_testing.generic_tests.TestJSONData;
-import regresion_testing.generic_tests.TestParamsProcessed;
-import regresion_testing.generic_tests.TestParamsProcessed.TestType;
-import regresion_testing.generic_tests.TestResult;
+import regresion_testing.util.ANSIConstants;
+import regresion_testing.util.Configuration;
+import regresion_testing.util.CsvExport;
+import regresion_testing.util.TestJSONData;
+import regresion_testing.util.TestParamsProcessed;
+import regresion_testing.util.TestResult;
 
 @RunWith(Parameterized.class)
 public class DynamicGenerator {
@@ -38,7 +40,7 @@ public class DynamicGenerator {
 	private String testUrl;
 	private String field;
 	private String value;
-	private TestType testType;
+	private SeleniumTests testType;
 	private static String jsonRoute = "src/main/resources/json/config.json";
 	private static Configuration config;
 	private static List<TestParamsProcessed> testsProcessed;
@@ -83,7 +85,7 @@ public class DynamicGenerator {
 	 * @param testType
 	 */
 	public DynamicGenerator(String testUrl, String field, String value,
-			TestType testType) {
+			SeleniumTests testType) {
 		this.testUrl = testUrl;
 		this.field = field;
 		this.value = value;
@@ -114,13 +116,13 @@ public class DynamicGenerator {
 			// testProcessor method.
 
 			testProcessor(dataList.getSearchFields(), dataList.getUrl(),
-					TestType.SEARCH);
+					new SearchTest());
 
 			testProcessor(dataList.getCheckFields(), dataList.getUrl(),
-					TestType.CHECK);
+					new CheckTest());
 
 			testProcessor(dataList.getComoboboxFields(), dataList.getUrl(),
-					TestType.COMBOBOX);
+					new ComboboxTest());
 		}
 
 		// Process all the data and return it.
@@ -139,7 +141,7 @@ public class DynamicGenerator {
 	}
 
 	private static void testProcessor(Map<String, List<String>> map,
-			String[] urls, TestType testType) {
+			String[] urls, SeleniumTests testType) {
 		if (map != null) {
 			List<String> keySet = new ArrayList<String>(map.keySet());
 			// Run through the Map of Fields
@@ -166,14 +168,7 @@ public class DynamicGenerator {
 	public void dynamicTest() {
 		TestResult res = null;
 
-		if (testType.equals(TestType.SEARCH)) {
-			res = new SeleniumTests().searchTest(driver, testUrl, field, value);
-		} else if (testType.equals(TestType.CHECK)) {
-			res = new SeleniumTests().checkTest(driver, testUrl, field, value);
-		} else if (testType.equals(TestType.COMBOBOX)) {
-			res = new SeleniumTests().comboboxTest(driver, testUrl, field,
-					value);
-		}
+		res = testType.execute(driver, testUrl, field, value);
 
 		String status;
 

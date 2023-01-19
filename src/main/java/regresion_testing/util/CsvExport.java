@@ -1,4 +1,4 @@
-package regresion_testing.configuration;
+package regresion_testing.util;
 
 import java.io.FileWriter;
 import java.io.IOException;
