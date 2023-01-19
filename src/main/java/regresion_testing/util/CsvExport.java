@@ -11,6 +11,10 @@ public class CsvExport {
 
 	private List<String[]> csvExport = null;
 
+	/**
+	 * Used to add lines to the csv file.
+	 * @param csvExport
+	 */
 	public void addCsvExport(String[] csvExport) {
 		this.csvExport.add(csvExport);
 	}
@@ -19,6 +23,9 @@ public class CsvExport {
 		csvExport = new ArrayList<String[]>();
 	}
 
+	/**
+	 * Used to export the information in csvExport to the output file.
+	 */
 	public void export() {
 		try (CSVWriter writer = new CSVWriter(new FileWriter("output.csv"));) {
 			writer.writeAll(csvExport);
