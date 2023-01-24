@@ -7,7 +7,7 @@ import java.util.Map;
 public class TestResult {
 	private String url;
 	private boolean success;
-	private String errorMessage = "No error apparently";
+	private String errorMessage;
 	private String testName;
 	private Map<String, String> args;
 
@@ -16,6 +16,7 @@ public class TestResult {
 		this.url = url;
 		this.testName = testName;
 		this.args = args;
+		this.errorMessage = "No error apparently";
 	}
 
 	public boolean isSuccess() {
