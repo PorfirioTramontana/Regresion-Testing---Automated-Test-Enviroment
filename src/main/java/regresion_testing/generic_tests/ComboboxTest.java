@@ -12,7 +12,7 @@ import regresion_testing.util.TestResult;
 
 public class ComboboxTest implements SeleniumTests {
 
-	@Override
+	
 	/**
 	 * This test is used to edit a part in a webpage and check that it has been
 	 * changed.
@@ -23,6 +23,7 @@ public class ComboboxTest implements SeleniumTests {
 	 * @param value
 	 * @return
 	 */
+	@Override
 	public TestResult execute (WebDriver driver, String url, String field,
 			String value) {
 		TestResult result = new TestResult(url, "Combobox",

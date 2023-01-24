@@ -12,7 +12,7 @@ import regresion_testing.util.TestResult;
 
 public class SearchTest implements SeleniumTests {
 
-	@Override
+	
 	/**
 	 * This test is used to check if the search function works in a webpage.
 	 * 
@@ -22,6 +22,7 @@ public class SearchTest implements SeleniumTests {
 	 * @param value
 	 * @return
 	 */
+	@Override
 	public TestResult execute (WebDriver driver, String url, String field,
 			String value) {
 		TestResult result = new TestResult(url, "Search", Map.of(field, value));
