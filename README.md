@@ -25,7 +25,7 @@ Testing Augmentation technique which, starting from tests recorded with Selenium
 
 2º In the JSON test files use always fullXpath for the element you want to select.
 
-
+An update
 ## How to run the tests locally
 
 After executing the following command a detailed test report in csv format is generated.
